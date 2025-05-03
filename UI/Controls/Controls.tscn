@@ -1,0 +1,205 @@
+[gd_scene load_steps=12 format=3 uid="uid://pani7r2dufrr"]
+
+[ext_resource type="Script" uid="uid://vib20yx8wq2e" path="res://UI/Controls/controls.gd" id="1_6ulj2"]
+[ext_resource type="Texture2D" uid="uid://ctm51uxspi3g1" path="res://Assets/Art/BackgroundSolo.png" id="2_s3r3s"]
+[ext_resource type="Script" uid="uid://cocepgd1u6mrv" path="res://UI/verticalMenu.gd" id="3_qhi63"]
+[ext_resource type="Texture2D" uid="uid://dc6k7k0g4551" path="res://Assets/Art/Pointer.png" id="4_edx6k"]
+[ext_resource type="Texture2D" uid="uid://df8bqjtapblu0" path="res://Assets/Art/Keyboard Letters and Symbols.png" id="5_qhi63"]
+[ext_resource type="Texture2D" uid="uid://b74rud6jqh6hh" path="res://Assets/Art/Keyboard Extras.png" id="6_edx6k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_olhsh"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvo2d"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_gh6jq"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_yratr"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_8usoa"]
+font_size = 40
+
+[node name="Controls" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ulj2")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s3r3s")
+
+[node name="VerticalMenu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.615
+anchor_right = 0.653
+anchor_bottom = 0.917
+offset_left = -0.184006
+offset_top = -0.320007
+offset_right = 0.18396
+offset_bottom = -0.256042
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_qhi63")
+pointer = NodePath("../Pointer")
+metadata/_custom_type_script = "uid://cocepgd1u6mrv"
+
+[node name="Play" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_olhsh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "High Score"
+label_settings = SubResource("LabelSettings_pvo2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_gh6jq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_yratr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pointer" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.626
+anchor_right = 0.317
+anchor_bottom = 0.685
+offset_left = 0.296005
+offset_top = 5.23196
+offset_right = -0.0240021
+offset_bottom = -0.0800781
+texture = ExtResource("4_edx6k")
+
+[node name="Description" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.542
+anchor_top = 0.083
+anchor_right = 0.896
+anchor_bottom = 0.539
+offset_left = -0.22403
+offset_top = 0.255997
+offset_right = -0.112
+offset_bottom = 0.0479736
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Description"]
+layout_mode = 2
+text = "Move Left"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Description"]
+layout_mode = 2
+text = "Move Right"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Description"]
+layout_mode = 2
+text = "Rotate Left"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Description"]
+layout_mode = 2
+text = "Rotate Right"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Description"]
+layout_mode = 2
+text = "Drop"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Description"]
+layout_mode = 2
+text = "Hard Drop"
+label_settings = SubResource("LabelSettings_8usoa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(150, 95)
+scale = Vector2(5, 4.136)
+texture = ExtResource("5_qhi63")
+hframes = 8
+vframes = 14
+frame = 2
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(150, 155)
+scale = Vector2(5, 4.136)
+texture = ExtResource("5_qhi63")
+hframes = 8
+vframes = 14
+frame = 3
+
+[node name="Z" type="Sprite2D" parent="."]
+position = Vector2(150, 215)
+scale = Vector2(5, 4.135)
+texture = ExtResource("5_qhi63")
+hframes = 8
+vframes = 14
+frame = 41
+
+[node name="X" type="Sprite2D" parent="."]
+position = Vector2(150, 275)
+scale = Vector2(5, 4.136)
+texture = ExtResource("5_qhi63")
+hframes = 8
+vframes = 14
+frame = 39
+
+[node name="Down" type="Sprite2D" parent="."]
+position = Vector2(150, 335)
+scale = Vector2(5, 4.136)
+texture = ExtResource("5_qhi63")
+hframes = 8
+vframes = 14
+frame = 1
+
+[node name="Space" type="Sprite2D" parent="."]
+position = Vector2(150, 395)
+scale = Vector2(4, 5.022)
+texture = ExtResource("6_edx6k")
+hframes = 4
+vframes = 8
+frame = 10
+
+[connection signal="chose" from="VerticalMenu" to="." method="_on_menu_item_chosen"]

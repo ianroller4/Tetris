@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=3 uid="uid://gogxdhighfr3"]
+
+[ext_resource type="Script" uid="uid://dfmm360b400j" path="res://UI/High Score/highScore.gd" id="1_jg48m"]
+[ext_resource type="Texture2D" uid="uid://ctm51uxspi3g1" path="res://Assets/Art/BackgroundSolo.png" id="2_qccsn"]
+[ext_resource type="Script" uid="uid://cocepgd1u6mrv" path="res://UI/verticalMenu.gd" id="3_88suv"]
+[ext_resource type="Texture2D" uid="uid://dc6k7k0g4551" path="res://Assets/Art/Pointer.png" id="4_yq37u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_logwh"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kl40"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxsaq"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_2qfgh"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_jg48m"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_qccsn"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_88suv"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_yq37u"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_i8wvf"]
+font_size = 40
+
+[node name="High Score" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jg48m")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qccsn")
+
+[node name="VerticalMenu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.615
+anchor_right = 0.653
+anchor_bottom = 0.917
+offset_left = -0.184006
+offset_top = -0.320007
+offset_right = 0.18396
+offset_bottom = -0.256042
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_88suv")
+pointer = NodePath("../Pointer")
+metadata/_custom_type_script = "uid://cocepgd1u6mrv"
+
+[node name="Play" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_logwh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_6kl40")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_qxsaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_2qfgh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pointer" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.626
+anchor_right = 0.317
+anchor_bottom = 0.685
+offset_left = 0.296005
+offset_top = 5.23196
+offset_right = -0.0240021
+offset_bottom = -0.0800781
+texture = ExtResource("4_yq37u")
+
+[node name="Positions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.298
+anchor_top = 0.13
+anchor_right = 0.357
+anchor_bottom = 0.5
+offset_left = -0.256012
+offset_top = 0.159988
+offset_right = 0.0959778
+offset_bottom = 7.0
+
+[node name="One" type="Label" parent="Positions"]
+layout_mode = 2
+text = "1."
+label_settings = SubResource("LabelSettings_jg48m")
+
+[node name="Two" type="Label" parent="Positions"]
+layout_mode = 2
+text = "2."
+label_settings = SubResource("LabelSettings_qccsn")
+
+[node name="Three" type="Label" parent="Positions"]
+layout_mode = 2
+text = "3."
+label_settings = SubResource("LabelSettings_88suv")
+
+[node name="Four" type="Label" parent="Positions"]
+layout_mode = 2
+text = "4."
+label_settings = SubResource("LabelSettings_yq37u")
+
+[node name="Five" type="Label" parent="Positions"]
+layout_mode = 2
+text = "5."
+label_settings = SubResource("LabelSettings_i8wvf")
+
+[node name="Scores" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 100.0
+offset_right = 466.0
+offset_bottom = 391.0
+
+[node name="One" type="Label" parent="Scores"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jg48m")
+horizontal_alignment = 2
+
+[node name="Two" type="Label" parent="Scores"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qccsn")
+horizontal_alignment = 2
+
+[node name="Three" type="Label" parent="Scores"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_88suv")
+horizontal_alignment = 2
+
+[node name="Four" type="Label" parent="Scores"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_yq37u")
+horizontal_alignment = 2
+
+[node name="Five" type="Label" parent="Scores"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_i8wvf")
+horizontal_alignment = 2
+
+[connection signal="chose" from="VerticalMenu" to="." method="_on_menu_item_chosen"]

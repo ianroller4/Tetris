@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://k1ko6sbpw5fu"]
+
+[ext_resource type="Script" uid="uid://scun0j0i2v4v" path="res://UI/GameOver/gameOver.gd" id="1_llnap"]
+[ext_resource type="Texture2D" uid="uid://ctm51uxspi3g1" path="res://Assets/Art/BackgroundSolo.png" id="2_whavd"]
+[ext_resource type="Script" uid="uid://cocepgd1u6mrv" path="res://UI/verticalMenu.gd" id="3_5d1br"]
+[ext_resource type="Texture2D" uid="uid://dc6k7k0g4551" path="res://Assets/Art/Pointer.png" id="4_jr45j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_olhsh"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvo2d"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_gh6jq"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_yratr"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_llnap"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_whavd"]
+font_size = 40
+
+[node name="Game Over" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_llnap")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_whavd")
+
+[node name="VerticalMenu" type="VBoxContainer" parent="." node_paths=PackedStringArray("pointer")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.615
+anchor_right = 0.653
+anchor_bottom = 0.917
+offset_left = -0.184006
+offset_top = -0.320007
+offset_right = 0.18396
+offset_bottom = -0.256042
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_5d1br")
+pointer = NodePath("../Pointer")
+metadata/_custom_type_script = "uid://cocepgd1u6mrv"
+
+[node name="Play" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_olhsh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "High Score"
+label_settings = SubResource("LabelSettings_pvo2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_gh6jq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="Label" parent="VerticalMenu"]
+layout_mode = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_yratr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pointer" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.626
+anchor_right = 0.317
+anchor_bottom = 0.685
+offset_left = 0.296005
+offset_top = 5.23196
+offset_right = -0.0240021
+offset_bottom = -0.0800781
+texture = ExtResource("4_jr45j")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 64.0
+offset_right = 273.0
+offset_bottom = 337.0
+grow_horizontal = 2
+text = "Game 
+Over"
+label_settings = SubResource("LabelSettings_llnap")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47
+anchor_top = 0.495
+anchor_right = 0.53
+anchor_bottom = 0.566
+offset_left = 0.159973
+offset_top = -0.160034
+offset_right = -0.160034
+offset_bottom = 0.311951
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_whavd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="chose" from="VerticalMenu" to="." method="_on_menu_item_chosen"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
